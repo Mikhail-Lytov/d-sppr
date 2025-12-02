@@ -11,6 +11,7 @@
 
     <modules>
         <module>d-parser-bpmn</module>
+        <module>d-sppr-bd</module>
     </modules>
 
     <packaging>pom</packaging>
