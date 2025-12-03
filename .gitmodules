@@ -1,6 +1,12 @@
-[submodule "/Users/mihaillytov/Desktop/Диплом/реализация/backend/d-sppr-parent/d-parser-bpmn"]
-	path = /Users/mihaillytov/Desktop/Диплом/реализация/backend/d-sppr-parent/d-parser-bpmn
+[submodule "d-parser-bpmn"]
+	path = d-parser-bpmn
 	url = git@github.com:Mikhail-Lytov/d-parser-bpmn.git
-[submodule "/Users/mihaillytov/Desktop/Диплом/реализация/backend/d-sppr-parent/d-sppr-bd"]
-	path = /Users/mihaillytov/Desktop/Диплом/реализация/backend/d-sppr-parent/d-sppr-bd
+[submodule "d-sppr-bd"]
+	path = d-sppr-bd
 	url = git@github.com:Mikhail-Lytov/d-sppr-bd.git
+[submodule "d-sppr-core"]
+	path = d-sppr-core
+	url = https://github.com/Mikhail-Lytov/d-sppr-core.git
+[submodule "web"]
+	path = web
+	url = https://github.com/Mikhail-Lytov/d-sppr-web.git
