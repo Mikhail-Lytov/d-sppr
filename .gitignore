@@ -37,3 +37,4 @@ build/
 
 ### local spring profile ###
 src/main/resources/application-local.yml
+/d-sppr-analyzer/.idea/
