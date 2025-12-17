@@ -88,6 +88,18 @@ services:
       - gitlab_config:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - gitlab-opt:/var/opt/gitlab
+
+  rabbitmq_sppr:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq_sppr'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq/
+      - rabbit_log:/var/log/rabbitmq
+    networks:
+      - sppr
 networks:
   sppr:
     driver: bridge
@@ -105,3 +117,5 @@ volumes:
   gitlab_config:
   gitlab-logs:
   gitlab-opt:
+  rabbit_data:
+  rabbit_log:
