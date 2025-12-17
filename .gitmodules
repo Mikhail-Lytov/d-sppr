@@ -10,6 +10,3 @@
 [submodule "web"]
 	path = web
 	url = https://github.com/Mikhail-Lytov/d-sppr-web.git
-[submodule "d-sppr-analyzer"]
-    path = d-sppr-analyzer
-    url = git@github.com:Mikhail-Lytov/d-sppr-analyzer.git
