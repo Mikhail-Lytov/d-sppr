@@ -13,6 +13,7 @@
         <module>d-parser-bpmn</module>
         <module>d-sppr-bd</module>
         <module>d-sppr-core</module>
+        <module>d-sppr-analyzer</module>
     </modules>
 
     <packaging>pom</packaging>
