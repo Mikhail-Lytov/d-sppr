@@ -88,6 +88,8 @@ services:
       - gitlab_config:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - gitlab-opt:/var/opt/gitlab
+    networks:
+      - sppr
 
   rabbitmq_sppr:
     image: rabbitmq:3-management-alpine
@@ -98,6 +100,36 @@ services:
     volumes:
       - rabbit_data:/var/lib/rabbitmq/
       - rabbit_log:/var/log/rabbitmq
+    networks:
+      - sppr
+  neo4j:
+    image: neo4j:5
+    container_name: sppr-neo4j
+    restart: unless-stopped
+
+    ports:
+      - "7474:7474"   # Web UI (Neo4j Browser)
+      - "7687:7687"   # Bolt (drivers)
+
+    environment:
+      NEO4J_AUTH: neo4j/neo4j123
+      NEO4J_dbms_security_auth__enabled: "true"
+
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/import
+      - neo4j_plugins:/plugins
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    container_name: gitlab-runner
+    restart: unless-stopped
+    depends_on:
+      - gitlab
+    volumes:
+      - gitlab_runner_config:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - sppr
 networks:
@@ -119,3 +151,8 @@ volumes:
   gitlab-opt:
   rabbit_data:
   rabbit_log:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  neo4j_plugins:
+  gitlab_runner_config:
